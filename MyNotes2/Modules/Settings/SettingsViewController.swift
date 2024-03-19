@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
                                         Settings(leftImage: "trash", title: "Очистить данные", type: .none, description: "")]
     
     private lazy var settingsTableView: UITableView = {
-       let view = UITableView()
+        let view = UITableView()
         view.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseId)
         view.dataSource = self
         view.delegate = self
@@ -37,6 +37,7 @@ class SettingsViewController: UIViewController {
     }()
     
     weak var controller: SettingsControllerProtocol?
+    let languageSelectionViewController = LanguageSelectView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,9 @@ class SettingsViewController: UIViewController {
         } else {
             view.overrideUserInterfaceStyle = .light
         }
+        
     }
+    
     
     private func setupConstraints() {
         view.addSubview(settingsTableView)
@@ -83,9 +86,37 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 50
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.row == 0 {
+            presentLanguageSelection()
+        } else {
+            
+        }
+    }
+    
+    
+    //------------------
+    private func presentLanguageSelection() {
+//        present(languageSelectionViewController, animated: true, completion: nil)
+        
+        let languageSelectionViewController = languageSelectionViewController
+        
+        let sheetPresentationController = languageSelectionViewController.presentationController as? UISheetPresentationController
+        
+        sheetPresentationController?.detents = [.medium(), .large()]
+        sheetPresentationController?.prefersGrabberVisible = true
+        sheetPresentationController?.prefersScrollingExpandsWhenScrolledToEdge = true
+        
+        present(languageSelectionViewController, animated: true, completion: nil)
     }
 }
+
+//----------------------
 
 extension SettingsViewController: SettingsViewProtocol {
     

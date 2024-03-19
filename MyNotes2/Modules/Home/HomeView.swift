@@ -100,6 +100,7 @@ class HomeView: UIViewController {
     
     @objc func addButtonTapped() {
         navigationController?.pushViewController(AddNoteView(), animated: true)
+
 //        let vc = AddNoteView()
 //        vc.didSaveNote = { [weak self] newNote in
 //            self?.notes.append(newNote)

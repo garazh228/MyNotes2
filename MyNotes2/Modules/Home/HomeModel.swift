@@ -25,7 +25,5 @@ class HomeModel: HomeModelProtocol {
         notes = coreDataService.fetchNotes()
         controller?.onSuccessNotes(notes: notes)
     }
-    
-    
 }
 

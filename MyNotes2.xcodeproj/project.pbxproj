@@ -26,6 +26,8 @@
 		2E2CB36E2BA4551C004ED8ED /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CB36C2BA4551C004ED8ED /* Note+CoreDataClass.swift */; };
 		2E2CB36F2BA4551C004ED8ED /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CB36D2BA4551C004ED8ED /* Note+CoreDataProperties.swift */; };
 		2E2CB3732BA455F2004ED8ED /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CB3722BA455F2004ED8ED /* CoreDataService.swift */; };
+		2EE5BD522BA8D750008018EF /* LanguageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD512BA8D750008018EF /* LanguageSelectView.swift */; };
+		2EE5BD542BA98584008018EF /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD532BA98584008018EF /* LanguageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		2E2CB36C2BA4551C004ED8ED /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E2CB36D2BA4551C004ED8ED /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E2CB3722BA455F2004ED8ED /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		2EE5BD512BA8D750008018EF /* LanguageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectView.swift; sourceTree = "<group>"; };
+		2EE5BD532BA98584008018EF /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,6 @@
 		2E2CB32C2BA2F6B0004ED8ED = {
 			isa = PBXGroup;
 			children = (
-				2E2CB36C2BA4551C004ED8ED /* Note+CoreDataClass.swift */,
-				2E2CB36D2BA4551C004ED8ED /* Note+CoreDataProperties.swift */,
 				2E2CB3372BA2F6B0004ED8ED /* MyNotes2 */,
 				2E2CB3362BA2F6B0004ED8ED /* Products */,
 			);
@@ -84,6 +86,8 @@
 		2E2CB3372BA2F6B0004ED8ED /* MyNotes2 */ = {
 			isa = PBXGroup;
 			children = (
+				2E2CB36C2BA4551C004ED8ED /* Note+CoreDataClass.swift */,
+				2E2CB36D2BA4551C004ED8ED /* Note+CoreDataProperties.swift */,
 				2E2CB3702BA455C9004ED8ED /* Services */,
 				2E2CB3522BA2F72C004ED8ED /* Modules */,
 				2E2CB34C2BA2F6EE004ED8ED /* Delegate */,
@@ -116,6 +120,7 @@
 		2E2CB3522BA2F72C004ED8ED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2EE5BD502BA8D706008018EF /* LanguageSelectView */,
 				2E2CB3662BA43D59004ED8ED /* AddNote */,
 				2E2CB35C2BA2F7AA004ED8ED /* Home */,
 				2E2CB3532BA2F760004ED8ED /* Settings */,
@@ -168,6 +173,15 @@
 				2E2CB3722BA455F2004ED8ED /* CoreDataService.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2EE5BD502BA8D706008018EF /* LanguageSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BD512BA8D750008018EF /* LanguageSelectView.swift */,
+				2EE5BD532BA98584008018EF /* LanguageCell.swift */,
+			);
+			path = LanguageSelectView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,8 +262,10 @@
 				2E2CB3682BA43D70004ED8ED /* AddNoteView.swift in Sources */,
 				2E2CB35E2BA2F7B5004ED8ED /* HomeView.swift in Sources */,
 				2E2CB34F2BA2F713004ED8ED /* OnBoardingView.swift in Sources */,
+				2EE5BD522BA8D750008018EF /* LanguageSelectView.swift in Sources */,
 				2E2CB3392BA2F6B0004ED8ED /* AppDelegate.swift in Sources */,
 				2E2CB3622BA2F7D3004ED8ED /* HomeController.swift in Sources */,
+				2EE5BD542BA98584008018EF /* LanguageCell.swift in Sources */,
 				2E2CB36F2BA4551C004ED8ED /* Note+CoreDataProperties.swift in Sources */,
 				2E2CB3642BA2F7DD004ED8ED /* HomeModel.swift in Sources */,
 				2E2CB33B2BA2F6B0004ED8ED /* SceneDelegate.swift in Sources */,
