@@ -7,69 +7,6 @@
 
 import UIKit
 
-//class LanguageSelectView: UIViewController {
-//
-//    var languages: [String] = ["Русский", "English", "Кыргызча"]
-//    var languageSelectionHandler: ((String) -> Void)?
-//
-//    private lazy var collectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .vertical
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 5
-//
-//
-//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        collectionView.backgroundColor = .white
-//        collectionView.showsVerticalScrollIndicator = false
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        return collectionView
-//    }()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .clear
-//        setupCollectionView()
-//    }
-//
-//    private func setupCollectionView() {
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//        collectionView.register(LanguageCell.self, forCellWithReuseIdentifier: "LanguageCell")
-//
-//        view.addSubview(collectionView)
-//        NSLayoutConstraint.activate([
-//            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-//            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-//        ])
-//    }
-//}
-//
-//extension LanguageSelectView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return languages.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LanguageCell", for: indexPath) as! LanguageCell
-//        cell.textLabel.text = languages[indexPath.item]
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: collectionView.bounds.width - 20, height: 50)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//        let selectedLanguage = languages[indexPath.item]
-//        languageSelectionHandler?(selectedLanguage)
-//        dismiss(animated: true, completion: nil) // Для закрытия листа после выбора языка
-//    }
-//}
-
 class LanguageSelectView: UIViewController {
     
     let languages = [("Русский", "rus"), ("Английский", "eng"), ("Кыргызский", "kgz")]
