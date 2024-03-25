@@ -21,7 +21,7 @@ class HomeView: UIViewController {
     
     private lazy var noteSearchBar: UISearchBar = {
         let view = UISearchBar()
-        view.placeholder = "Search"
+        view.placeholder = "Search".localized()
         //view.delegate = self
         view.searchTextField.addTarget(self, action: #selector(noteSearchBarEditingChanged), for: .editingChanged)
         return view
@@ -29,7 +29,7 @@ class HomeView: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "Notes"
+        view.text = "Notes".localized()
         view.font = UIFont.systemFont(ofSize: 16)
         return view
     }()
@@ -63,7 +63,7 @@ class HomeView: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
         setupConstraints()
-    
+        
         controller = HomeController(view: self)
         
     }
@@ -81,7 +81,7 @@ class HomeView: UIViewController {
     }
     
     private func setupNavigationItem() {
-        navigationItem.title = "Home"
+        navigationItem.title = "Home".localized()
         let gearIcon = UIImage(systemName: "gear")
         let rightBarButtonItem = UIBarButtonItem(image: gearIcon?.withTintColor(.black), style: .plain, target: self, action: #selector(settingsButtonTapped))
         if UserDefaults.standard.bool(forKey: "theme") == true {
@@ -100,30 +100,10 @@ class HomeView: UIViewController {
     
     @objc func addButtonTapped() {
         navigationController?.pushViewController(AddNoteView(), animated: true)
-
-//        let vc = AddNoteView()
-//        vc.didSaveNote = { [weak self] newNote in
-//            self?.notes.append(newNote)
-//            self?.filteredNotes.append(newNote)
-//            self?.notesCollectionView.reloadData()
-//        }
-//        
-////        vc.notes = self.notes
-//        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func noteSearchBarEditingChanged() {
         if let text = noteSearchBar.text {
-            //            filteredNotes = []
-            //            if text.isEmpty {
-            //                filteredNotes = notes
-            //            } else {
-            //                filteredNotes = notes.filter({ note in
-            //                    note.uppercased().contains(text.uppercased())
-            //                })
-            //            }
-            //            notesCollectionView.reloadData()
-            //        }
             
             if text.isEmpty {
                 addButton.backgroundColor = .lightGray
@@ -202,16 +182,14 @@ extension HomeView: HomeViewProtocol {
 }
 
 extension HomeView: NoteCellDelegate {
-    func didRemoveButton(index: Int) {
-        
-        if index >= 0 && index < notes.count {
-            notes.remove(at: index)
-            filteredNotes = notes
-            notesCollectionView.reloadData()
+        func didRemoveButton(index: Int) {
+            if index >= 0 && index < notes.count {
+                notes.remove(at: index)
+                filteredNotes = notes
+                notesCollectionView.reloadData()
+            }
         }
-    }
 }
-
 
 extension HomeView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

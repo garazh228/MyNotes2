@@ -5,3 +5,14 @@
   Created by adyl CEO on 24/03/2024.
   
 */
+
+"Settings" = "Настройки";
+"Choose language" = "Выбрать язык";
+"Dark theme" = "Темная тема";
+"Clear data" = "Очистить данные";
+"Home" = "Главная";
+"Notes" = "Заметки";
+"Search" = "Поиск";
+"Save" = "Сохранить";
+"Next" = "Далее";
+"Skip" = "Пропустить";

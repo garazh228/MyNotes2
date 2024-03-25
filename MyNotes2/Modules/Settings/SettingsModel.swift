@@ -14,6 +14,8 @@ protocol SettingsModelProtocol {
 class SettingsModel {
     weak var controller: SettingsControllerProtocol?
     
+    private let coreDataService = CoreDataService.shared
+    
     init(controller: SettingsControllerProtocol) {
         self.controller = controller
     }

@@ -28,6 +28,10 @@
 		2E2CB3732BA455F2004ED8ED /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CB3722BA455F2004ED8ED /* CoreDataService.swift */; };
 		2EE5BD522BA8D750008018EF /* LanguageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD512BA8D750008018EF /* LanguageSelectView.swift */; };
 		2EE5BD542BA98584008018EF /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD532BA98584008018EF /* LanguageCell.swift */; };
+		2EE5BD592BB035D6008018EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EE5BD5B2BB035D6008018EF /* Localizable.strings */; };
+		2EE5BD602BB036A1008018EF /* AppLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE5BD5F2BB036A1008018EF /* AppLanguageManager.swift */; };
+		2EE5BD632BB08CB7008018EF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE5BD622BB08CB7008018EF /* SnapKit */; };
+		2EE5BD652BB08CB7008018EF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 2EE5BD642BB08CB7008018EF /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,12 @@
 		2E2CB3722BA455F2004ED8ED /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		2EE5BD512BA8D750008018EF /* LanguageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectView.swift; sourceTree = "<group>"; };
 		2EE5BD532BA98584008018EF /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		2EE5BD552BB03555008018EF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2EE5BD562BB03564008018EF /* ky-KG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ky-KG"; path = "ky-KG.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		2EE5BD5A2BB035D6008018EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2EE5BD5C2BB035D9008018EF /* ky-KG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ky-KG"; path = "ky-KG.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2EE5BD5D2BB035DB008018EF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2EE5BD5F2BB036A1008018EF /* AppLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE5BD632BB08CB7008018EF /* SnapKit in Frameworks */,
+				2EE5BD652BB08CB7008018EF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +82,7 @@
 		2E2CB32C2BA2F6B0004ED8ED = {
 			isa = PBXGroup;
 			children = (
+				2EE5BD5B2BB035D6008018EF /* Localizable.strings */,
 				2E2CB3372BA2F6B0004ED8ED /* MyNotes2 */,
 				2E2CB3362BA2F6B0004ED8ED /* Products */,
 			);
@@ -86,6 +99,7 @@
 		2E2CB3372BA2F6B0004ED8ED /* MyNotes2 */ = {
 			isa = PBXGroup;
 			children = (
+				2EE5BD5E2BB0368A008018EF /* AppLanguage */,
 				2E2CB36C2BA4551C004ED8ED /* Note+CoreDataClass.swift */,
 				2E2CB36D2BA4551C004ED8ED /* Note+CoreDataProperties.swift */,
 				2E2CB3702BA455C9004ED8ED /* Services */,
@@ -184,6 +198,14 @@
 			path = LanguageSelectView;
 			sourceTree = "<group>";
 		};
+		2EE5BD5E2BB0368A008018EF /* AppLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				2EE5BD5F2BB036A1008018EF /* AppLanguageManager.swift */,
+			);
+			path = AppLanguage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +222,10 @@
 			dependencies = (
 			);
 			name = MyNotes2;
+			packageProductDependencies = (
+				2EE5BD622BB08CB7008018EF /* SnapKit */,
+				2EE5BD642BB08CB7008018EF /* SnapKit-Dynamic */,
+			);
 			productName = MyNotes2;
 			productReference = 2E2CB3352BA2F6B0004ED8ED /* MyNotes2.app */;
 			productType = "com.apple.product-type.application";
@@ -226,8 +252,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				"ky-KG",
 			);
 			mainGroup = 2E2CB32C2BA2F6B0004ED8ED;
+			packageReferences = (
+				2EE5BD612BB08CB7008018EF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2E2CB3362BA2F6B0004ED8ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E2CB3452BA2F6B2004ED8ED /* LaunchScreen.storyboard in Resources */,
+				2EE5BD592BB035D6008018EF /* Localizable.strings in Resources */,
 				2E2CB3422BA2F6B2004ED8ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +293,7 @@
 				2E2CB35B2BA2F7A2004ED8ED /* SettingsCell.swift in Sources */,
 				2E2CB3682BA43D70004ED8ED /* AddNoteView.swift in Sources */,
 				2E2CB35E2BA2F7B5004ED8ED /* HomeView.swift in Sources */,
+				2EE5BD602BB036A1008018EF /* AppLanguageManager.swift in Sources */,
 				2E2CB34F2BA2F713004ED8ED /* OnBoardingView.swift in Sources */,
 				2EE5BD522BA8D750008018EF /* LanguageSelectView.swift in Sources */,
 				2E2CB3392BA2F6B0004ED8ED /* AppDelegate.swift in Sources */,
@@ -283,8 +316,20 @@
 			isa = PBXVariantGroup;
 			children = (
 				2E2CB3442BA2F6B2004ED8ED /* Base */,
+				2EE5BD552BB03555008018EF /* ru */,
+				2EE5BD562BB03564008018EF /* ky-KG */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2EE5BD5B2BB035D6008018EF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EE5BD5A2BB035D6008018EF /* en */,
+				2EE5BD5C2BB035D9008018EF /* ky-KG */,
+				2EE5BD5D2BB035DB008018EF /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -295,6 +340,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -358,6 +404,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -485,6 +532,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2EE5BD612BB08CB7008018EF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2EE5BD622BB08CB7008018EF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EE5BD612BB08CB7008018EF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2EE5BD642BB08CB7008018EF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EE5BD612BB08CB7008018EF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2E2CB3692BA45254004ED8ED /* Note.xcdatamodeld */ = {

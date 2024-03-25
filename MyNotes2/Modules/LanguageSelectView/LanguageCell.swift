@@ -6,61 +6,58 @@
 //
 
 import UIKit
+import SnapKit
+
+struct Language {
+    var image: String
+    var title: String
+}
 
 class LanguageCell: UITableViewCell {
     
-    let flagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    static var reuseId = "language_cell"
+
+    private lazy var iconImageView: UIImageView = {
+       let view = UIImageView()
+        view.layer.cornerRadius = 32 / 2
+        view.clipsToBounds = true
+        return view
     }()
-    
-    let languageLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [flagImageView, languageLabel])
-        stackView.axis = .horizontal
-//        stackView.backgroundColor = .lightGray
-        stackView.spacing = 10
-        stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
+
+    private lazy var titleLabel: UILabel = {
+         let view = UILabel()
+         view.textAlignment = .center
+         return view
+     }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupUI()
+    setupConstraints()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
-        contentView.addSubview(flagImageView)
-        contentView.addSubview(languageLabel)
-        contentView.addSubview(stackView)
-        
-        flagImageView.translatesAutoresizingMaskIntoConstraints = false
-        languageLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            flagImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            flagImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            flagImageView.heightAnchor.constraint(equalToConstant: 40),
-            flagImageView.widthAnchor.constraint(equalTo: flagImageView.heightAnchor),
-            
-            languageLabel.leadingAnchor.constraint(equalTo: flagImageView.trailingAnchor, constant: 10),
-            languageLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+    func setup(language: Language) {
+        iconImageView.image = UIImage(named: language.image)
+        titleLabel.text = language.title
     }
+
+    private func setupConstraints() {
+        addSubview(iconImageView)
+        iconImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.width.height.equalTo(32)
+        }
+        
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+
 }
+
+

@@ -18,14 +18,17 @@ class Test {
 }
 
 protocol SettingsViewProtocol {
-    
+    func successDelete()
+    func failureDelete()
 }
 
 class SettingsViewController: UIViewController {
     
-    private var settings: [Settings] = [Settings(leftImage: "globe", title: "Язык", type: .withButton, description: "Русский"),
-                                        Settings(leftImage: "moon", title: "Темная тема", type: .withSwitch, description: ""),
-                                        Settings(leftImage: "trash", title: "Очистить данные", type: .none, description: "")]
+    var controller: SettingsControllerProtocol?
+    
+    private var settings: [Settings] = [Settings(leftImage: "globe", title: "Choose language".localized(), type: .withButton, description: "Русский".localized()),
+                                        Settings(leftImage: "moon", title: "Dark theme".localized(), type: .withSwitch, description: ""),
+                                        Settings(leftImage: "trash", title: "Clear data".localized(), type: .none, description: "")]
     
     private lazy var settingsTableView: UITableView = {
         let view = UITableView()
@@ -36,7 +39,6 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
-    weak var controller: SettingsControllerProtocol?
     let languageSelectionViewController = LanguageSelectView()
     
     override func viewDidLoad() {
@@ -52,9 +54,19 @@ class SettingsViewController: UIViewController {
         } else {
             view.overrideUserInterfaceStyle = .light
         }
-        
+        setupNavigationItem()
     }
     
+    private func setupNavigationItem() {
+        navigationItem.title = "Settings".localized()
+    }
+    
+    private func setupData() {
+        settings = [Settings(leftImage: "globe", title: "Choose language".localized(), type: .withButton, description: "Русский".localized()),
+                    Settings(leftImage: "moon", title: "Dark theme".localized(), type: .withSwitch, description: ""),
+                    Settings(leftImage: "trash", title: "Clear data".localized(), type: .none, description: "")]
+        settingsTableView.reloadData()
+    }
     
     private func setupConstraints() {
         view.addSubview(settingsTableView)
@@ -94,8 +106,19 @@ extension SettingsViewController: UITableViewDelegate {
         
         if indexPath.row == 0 {
             presentLanguageSelection()
-        } else {
+        } else if indexPath.row == 0 {
+            let languageView = LanguageSelectView()
+            languageView.delegate = self
+            let multiplier = 0.25
+            let customDetent = UISheetPresentationController.Detent.custom(resolver: { context in
+                languageView.view.frame.height * multiplier
+            })
+            if let sheet = languageView.sheetPresentationController {
+                
+                sheet.detents = [customDetent, .medium()]
+            }
             
+            self.present(languageView, animated: true)
         }
     }
     
@@ -119,9 +142,17 @@ extension SettingsViewController: UITableViewDelegate {
 //----------------------
 
 extension SettingsViewController: SettingsViewProtocol {
+    func successDelete() {
+        navigationController?.popViewController(animated: true)
+    }
     
+    func failureDelete() {
+        let alert = UIAlertController(title: "Ошибка", message: "Не удалось удалить заметку!", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(acceptAction)
+        present(alert, animated: true)
+    }
 }
-
 
 extension SettingsViewController: SettingsCellDelegate {
     func didSwitchOn(isOn: Bool) {
@@ -133,3 +164,12 @@ extension SettingsViewController: SettingsCellDelegate {
         }
     }
 }
+
+extension SettingsViewController: LanguageSelectViewDelegate {
+    func didLanguageSelect(LanguageType: LanguageType) {
+        setupNavigationItem()
+        //setupData()
+        settingsTableView.reloadData()
+    }
+}
+

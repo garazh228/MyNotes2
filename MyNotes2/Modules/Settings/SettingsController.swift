@@ -12,12 +12,12 @@ protocol SettingsControllerProtocol: AnyObject {
 }
 
 class SettingsController {
-    var view: SettingsViewController?
+    var view: SettingsViewProtocol
     var model: SettingsModelProtocol?
     
-    init(view: SettingsViewController? = nil, model: SettingsModelProtocol? = nil) {
+    init(view: SettingsViewProtocol) {
         self.view = view
-        self.model = model // Здесь исправлено на model
+        self.model = SettingsModel(controller: self)
     }
 }
 

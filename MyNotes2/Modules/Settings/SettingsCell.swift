@@ -113,8 +113,5 @@ class SettingsCell: UITableViewCell {
             switchView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             switchView.heightAnchor.constraint(equalToConstant: 40)
         ])
-        
-        
     }
-    
 }

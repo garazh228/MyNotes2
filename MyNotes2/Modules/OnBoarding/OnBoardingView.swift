@@ -37,7 +37,7 @@ class OnBoardingView: UIViewController {
     
     private lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Next", for: .normal)
+        button.setTitle("Next".localized(), for: .normal)
         button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         button.backgroundColor = .systemPink
         button.layer.cornerRadius = 20
@@ -48,7 +48,7 @@ class OnBoardingView: UIViewController {
     
     private lazy var skipButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setTitle("Skip", for: .normal)
+        view.setTitle("Skip".localized(), for: .normal)
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         view.tintColor = .systemPink

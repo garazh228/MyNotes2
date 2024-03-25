@@ -13,15 +13,9 @@ class AddNoteView: UIViewController {
     
      var note: Note?
     
-//    var didSaveNote: ((String) -> Void)?
-    
-//    var notes: [String] = []
-    
     private lazy var noteTextView: UITextView = {
         let view = UITextView()
         view.font = UIFont.systemFont(ofSize: 16)
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.cornerRadius = 8
         view.backgroundColor = UIColor(cgColor: CGColor(srgbRed: 238/255, green: 238/255, blue: 239/255, alpha: 1))
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +25,7 @@ class AddNoteView: UIViewController {
 
     private lazy var saveButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setTitle("Сохранить", for: .normal)
+        view.setTitle("Save".localized(), for: .normal)
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         view.setTitleColor(.white, for: .normal)
         view.backgroundColor = .gray
@@ -63,7 +57,6 @@ class AddNoteView: UIViewController {
         
         view.addSubview(saveButton)
         NSLayoutConstraint.activate([
-           // saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             saveButton.heightAnchor.constraint(equalToConstant: 40),
@@ -82,10 +75,6 @@ class AddNoteView: UIViewController {
         
         
         coreDataService.addNote(id: id, title: noteTextView.text ?? "", description: "", date: dateString)
-//        guard let noteText = noteTextView.text else { return }
-//        
-//        didSaveNote?(noteText)
-//        notes.append(noteText)
         
         navigationController?.popViewController(animated: true)
     }

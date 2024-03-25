@@ -7,6 +7,11 @@
 import UIKit
 import CoreData
 
+enum CoreDataResponse {
+    case success
+    case failure
+}
+
 class CoreDataService {
     static let shared = CoreDataService()
     
